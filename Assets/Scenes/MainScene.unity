@@ -5641,7 +5641,7 @@ GameObject:
   - component: {fileID: 1424121088}
   m_Layer: 11
   m_Name: Gooba
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5676,7 +5676,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.028192759, y: -0.08518737}
@@ -5809,6 +5809,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07877302, y: 0.5938339}
   m_EdgeRadius: 0
+--- !u!4 &1574160246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1440312787998818303, guid: 0899a132ddd7b0a4faf61912ede736cf, type: 3}
+  m_PrefabInstance: {fileID: 8482942624493743931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1574655105
 GameObject:
   m_ObjectHideFlags: 0
@@ -19876,6 +19881,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8986793274775013422, guid: 0899a132ddd7b0a4faf61912ede736cf, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1574160246}
+    - target: {fileID: 8986793274775013422, guid: 0899a132ddd7b0a4faf61912ede736cf, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 467985977842525398, guid: 9a4b22136cf01ca4784d6ec980216fa3, type: 3}
     - target: {fileID: 8986793274775013422, guid: 0899a132ddd7b0a4faf61912ede736cf, type: 3}
       propertyPath: runSpeed
       value: 7
