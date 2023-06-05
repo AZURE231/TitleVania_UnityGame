@@ -15,7 +15,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
+    [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
     float startGravity = 8f;
+    bool isAlive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,24 +32,36 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive) { return; }
         Run();
         FlipSprite();
         ClimbLadder();
+        Die();
+        
     }
 
     void OnMove(InputValue value)
     {
+        if (!isAlive) { return; }
         moveInput = value.Get<Vector2>();
     }
 
     void OnJump(InputValue value)
     {
+        if (!isAlive) { return; }
         // if player is in the air, prevent jumping
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        // jump
         if (value.isPressed)
         {
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
         }
+    }
+
+    void OnFire(InputValue value)
+    {
+        if (!isAlive) { return; }
+        Instantiate(bullet, gun.position, transform.rotation);
     }
 
     void Run()
@@ -78,5 +94,17 @@ public class PlayerMovement : MonoBehaviour
         if (playerHasHorizontalSpeed)
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
     }
+
+    void Die()
+    {
+        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Hazards", "Enemy")))
+        {
+            isAlive = false;
+            myAnimator.SetTrigger("Dying");
+            myRigidbody.velocity += deathKick;
+        }
+            
+    }
+
 
 }
