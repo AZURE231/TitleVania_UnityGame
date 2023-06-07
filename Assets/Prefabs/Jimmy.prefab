@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1440312787998818303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1291093808713291358}
   - component: {fileID: 8986793274775013422}
   - component: {fileID: 8815039655184278575}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Jimmy
   m_TagString: Player
   m_Icon: {fileID: 0}
