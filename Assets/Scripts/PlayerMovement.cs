@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform gun;
     float startGravity = 8f;
     bool isAlive = true;
+    bool isAttack = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,9 +61,12 @@ public class PlayerMovement : MonoBehaviour
 
     void OnFire(InputValue value)
     {
+        Debug.Log("Shoot");
         if (!isAlive) { return; }
         Instantiate(bullet, gun.position, transform.rotation);
     }
+
+    
 
     void Run()
     {
