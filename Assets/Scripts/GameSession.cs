@@ -62,7 +62,9 @@ public class GameSession : MonoBehaviour
     void ResetGameSession()
     {
         // player die using all lives
+        FindObjectOfType<ScenePersist>().ResetScenePersist();
         SceneManager.LoadScene(0);
+        
         Destroy(gameObject);
     }
 }
